@@ -1,4 +1,5 @@
 # 📦 Gestão de Produtos - Controle de Estoque e Vendas
+> https://dudufassa.github.io/Controle-Estoque/
 
 Um sistema web moderno e intuitivo para gerenciar estoque de produtos, registrar vendas e gerar relatórios detalhados com histórico de fechamentos mensais.
 
