@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Vendas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!--cabeçalho--------------------------------------->
+
+        <header>
+            <h1>📦 Gestão de Produtos</h1>
+            <p>Controle de Estoque e Vendas Mensais</p>
+        </header>
+
+        <!--Indicadores parte Superior---------------------->
+        <section class="dashboard-cards">
+            <div class="card">
+                <h3>Total em Estoque</h3>
+                <p id="total-estoque">0</p>
+            </div>
+        <!-------------------------------------------------->
+            <div class="card">
+                <h3>Produtos Vendidos</h3>
+                <p id="total-vendido">0</p>
+            </div>
+        <!-------------------------------------------------->
+            <div class="card card-destaque">
+                <h3>Vendas do Mes</h3>
+                <p id="faturamento-mes">R$0,00</p>
+            </div>    
+        </section>
+        
+        <br>
+        <br>
+        <br>
+
+        <!--Área Principal------------------------------------------------------------------------>
+        <main class="content-grid">
+
+            <!--Painel Cadastro---------------------------------------------------------------->
+            <section class="panel form-panel">
+                <h2>Cadastrar Novo Produto</h2>
+                <form id="produto-form">
+                    <div class="input-group">
+                        <label for="nome">Nome do Produto</label>
+                        <input type="text" id="nome" required placeholder="Ex: Maquita"> 
+                    </div>
+                    <!--------------------------------------------------------------------------->
+                    <div class="input-group">
+                        <label for="qtd">Quantidade</label>
+                        <input type="number" id="qtd" min="0" required placeholder="Ex: 10"> 
+                    </div>
+                    <!--------------------------------------------------------------------------->
+                    <div class="input-group">
+                        <label for="preco">Preço Unitário R$</label>
+                        <input type="number" id="preco" step="0.01" min="0" required placeholder="Ex: 199,00">
+                    </div>
+                    <button type="Submit" class="btn-primary">Cadastrar Produto Agora</button>
+                </form>
+            </section>
+
+            <!--Painel da Tabela-------------------------------------------------------------------------->
+            <section class="panel table-panel">
+                <h2>Produtos em Estoque</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produtos</th>
+                                <th>Quantidade</th>
+                                <th>Preco Un.</th>
+                                <th>Vendidos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-produtos">
+                            <!--Colocado via JS------------------------------------------------------->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!--Área de Fechamento do Mês------------------------------------------------------->
+    <div class="container container-fechamento">
+        <section class="panel panel-fechamento">
+            <h2>🔒 Fechamento do Mês</h2>
+            <p>Visualize o histórico de vendas e encerre o mês atual</p>
+            <div class="buttons-container">
+                <button id="btn-relatorio" class="btn-relatorio">📋 Ver Relatório de Vendas</button>
+                <button id="btn-historicos" class="btn-historicos">📚 Históricos de Fechamento</button>
+                <button id="btn-fechar-mes" class="btn-fechar-mes">✓ Fechar Mês</button>
+            </div>
+        </section>
+    </div>
+
+    <!--Modal de Venda------------------------------------------------------->
+    <div id="modal-venda" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Registrar Venda</h2>
+                <button id="btn-fechar-modal" class="btn-fechar-modal">&times;</button>
+            </div>
+            <form id="form-venda" class="form-venda">
+                <div class="input-group">
+                    <label for="venda-cliente">Nome do Cliente</label>
+                    <input type="text" id="venda-cliente" placeholder="Ex: João Silva">
+                </div>
+                <div class="input-group">
+                    <label for="venda-valor">Valor da Venda R$</label>
+                    <input type="number" id="venda-valor" step="0.01" min="0" placeholder="Ex: 199,00" required>
+                </div>
+                <div class="input-group">
+                    <label for="venda-observacao">Observação (opcional)</label>
+                    <textarea id="venda-observacao" placeholder="Ex: Cliente pediu desconto, pago em 2x..."></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-confirmar">✓ Confirmar Venda</button>
+                    <button type="button" id="btn-cancelar" class="btn-cancelar">✕ Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Assinatura------------------------------------------------------->
+    <footer class="footer">
+        <p>Desenvolvido por <span id="assinatura-dev" class="assinatura">devmarcioeduardo</span></p>
+    </footer>
+
+    <!--Popup de Redes Sociais------------------------------------------------------->
+    <div id="modal-redes" class="modal-overlay-redes">
+        <div class="modal-redes-content">
+            <div class="modal-redes-header">
+                <h3>Conectar com devmarcioeduardo</h3>
+                <button id="btn-fechar-redes" class="btn-fechar-modal">&times;</button>
+            </div>
+            <div class="redes-lista">
+                <a href="https://github.com/dudufassa" target="_blank" class="rede-link github">
+                    <span class="rede-icon">🔗</span>
+                    <span class="rede-nome">GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/devmarcioeduardo" target="_blank" class="rede-link linkedin">
+                    <span class="rede-icon">💼</span>
+                    <span class="rede-nome">LinkedIn</span>
+                </a>
+                <a href="https://instagram.com/dudu.fsss" target="_blank" class="rede-link instagram">
+                    <span class="rede-icon">📸</span>
+                    <span class="rede-nome">Instagram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    
+</body>
+<script src="script.js"></script>
+</html>
