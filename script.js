@@ -18,6 +18,32 @@ const btnCancelar = document.getElementById('btn-cancelar');
 const assinaturaDev = document.getElementById('assinatura-dev');
 const modalRedes = document.getElementById('modal-redes');
 const btnFecharRedes = document.getElementById('btn-fechar-redes');
+const themeToggle = document.getElementById('theme-toggle');
+
+function aplicarTema(theme) {
+ document.body.setAttribute('data-theme', theme);
+ const icone = themeToggle.querySelector('.theme-toggle__icon');
+ const texto = themeToggle.querySelector('.theme-toggle__text');
+
+ if (theme === 'dark') {
+  icone.textContent = '☀️';
+  texto.textContent = 'Tema claro';
+ } else {
+  icone.textContent = '🌙';
+  texto.textContent = 'Tema escuro';
+ }
+
+ localStorage.setItem('theme', theme);
+}
+
+const temaSalvo = localStorage.getItem('theme');
+const temaInicial = temaSalvo || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+aplicarTema(temaInicial);
+
+themeToggle.addEventListener('click', () => {
+ const temaAtual = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+ aplicarTema(temaAtual);
+});
 
 function atualizarInterface() {
  tabela.innerHTML = '';
