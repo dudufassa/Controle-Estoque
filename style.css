@@ -83,8 +83,10 @@ header p {
  padding: 10px 14px;
  border-radius: 999px;
  cursor: pointer;
- box-shadow: 0 6px 16px var(--shadow-color);
+ box-shadow: 0 8px 24px var(--shadow-color);
  transition: transform 0.2s ease, box-shadow 0.2s ease;
+ font-weight: 700;
+ margin-left: auto;
 }
 
 .theme-toggle:hover {
@@ -93,6 +95,16 @@ header p {
 
 .theme-toggle__icon {
  font-size: 1rem;
+}
+
+.theme-toggle__text {
+ white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+ .theme-toggle {
+  padding: 8px 12px;
+ }
 }
 .dashboard-cards {
  display: grid;
